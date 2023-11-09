@@ -2,10 +2,12 @@
 
 ## 설치 항목
 
-- [] styled-components
+- [x] styled-components
+  - npm i styled-components
 - [x] react-router-dom
   - npm i react-router-dom
-- [] style-reset
+- [x] style-reset
+  - npm i styled-reset
 - [] form 관련
 - [] title 관련
 - [] font-awesome
