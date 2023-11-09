@@ -15,6 +15,10 @@ export const GlobalStyled = createGlobalStyle`
 
     body{
         background-color: ${mainColors.blackColor};
+        color: white;
+        letter-spacing: -1px;
+        word-break: break-all;
+        /* 단어별로 줄바꿈 처리 */
     }
 
     ul, li{

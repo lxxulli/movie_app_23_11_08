@@ -3,6 +3,7 @@ import { routes } from "../routes";
 import styled from "styled-components";
 
 const SHeader = styled.div`
+  width: 100%;
   padding: 20px 5%;
   display: flex;
   justify-content: space-between;
@@ -10,6 +11,10 @@ const SHeader = styled.div`
   a {
     color: white;
   }
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
 `;
 const Logo = styled.div`
   font-size: 24px;

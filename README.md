@@ -17,6 +17,6 @@
 - [x] router 설정
 - [x] 각 component 제작 (실제 보여줄 페이지)
 - [] api 설정
-- [] Home component 구성
-- [] Detail component 구성
-- [] Search component 구성
+- [] Home ui 및 전체 컴포넌트 구성
+- [] Detail ui 및 전체 컴포넌트 구성
+- [] Search ui 및 전체 컴포넌트 구성
