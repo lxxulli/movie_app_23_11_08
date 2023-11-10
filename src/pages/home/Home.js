@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { nowPlaying } from "../../api";
+import { useEffect } from "react";
 
 const MainBanner = styled.section`
   height: 80vh;
@@ -40,7 +41,21 @@ const BlackBg = styled.div`
 `;
 
 export const Home = () => {
-  nowPlaying(); //비동기 통신할 때 그냥 함수를 불러올 수가 없음
+  // nowPlaying(); //비동기 통신할 때 그냥 함수를 불러올 수가 없음 (이렇게 하면 안됨)
+  // 1. 마운트 시 api에 요청
+  // 2. 비동기 통신
+  // 3. 예외 처리
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await nowPlaying();
+        console.log(data);
+      } catch (error) {
+        console.log("에러" + error);
+      }
+    })();
+  }, []);
 
   return (
     <>
