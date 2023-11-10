@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { nowPlaying } from "../../api";
 
 const MainBanner = styled.section`
   height: 80vh;
@@ -39,6 +40,8 @@ const BlackBg = styled.div`
 `;
 
 export const Home = () => {
+  nowPlaying(); //비동기 통신할 때 그냥 함수를 불러올 수가 없음
+
   return (
     <>
       <MainBanner>
