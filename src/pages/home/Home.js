@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { nowPlaying } from "../../api";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const MainBanner = styled.section`
   height: 80vh;
@@ -46,28 +46,47 @@ export const Home = () => {
   // 2. 비동기 통신
   // 3. 예외 처리
 
+  const [nowPlayingData, setNowPlayingData] = useState();
+  // 언제든 밑에 함수를 밖에서도 쓸 수 있게 도와줌
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     (async () => {
       try {
-        const data = await nowPlaying();
-        console.log(data);
+        const { results } = await nowPlaying();
+        setNowPlayingData(results);
+        // 통신이 다 끝나고 나서 로딩 호출
+        setLoading(false);
       } catch (error) {
         console.log("에러" + error);
       }
     })();
   }, []);
 
+  console.log(loading);
+  console.log(nowPlayingData);
+
   return (
     <>
-      <MainBanner>
-        <BlackBg />
-        <h3>TITLE</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, non
-          veritatis voluptate quibusdam nulla molestias eligendi, mollitia
-          voluptatibus reprehenderit optio hic ipsam tempore culpa!
-        </p>
-      </MainBanner>
+      {loading ? ( // 로딩이 참이면 실행
+        "loading..."
+      ) : (
+        // 그게 아니면
+        <div>
+          {nowPlayingData && (
+            <MainBanner>
+              <BlackBg />
+              <h3>{nowPlayingData[0].title}</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod,
+                non veritatis voluptate quibusdam nulla molestias eligendi,
+                mollitia voluptatibus reprehenderit optio hic ipsam tempore
+                culpa!
+              </p>
+            </MainBanner>
+          )}
+        </div>
+      )}
     </>
   );
 };
