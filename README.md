@@ -11,12 +11,15 @@
 - [] form 관련
 - [] title 관련
 - [] font-awesome
+- [x] swiper
 
 ## todo
 
 - [x] router 설정
 - [x] 각 component 제작 (실제 보여줄 페이지)
-- [] api 설정
+- [x] api 설정
+- [x] loading 설정
 - [] Home ui 및 전체 컴포넌트 구성
 - [] Detail ui 및 전체 컴포넌트 구성
 - [] Search ui 및 전체 컴포넌트 구성
+- [] 404 Page ui 구성
