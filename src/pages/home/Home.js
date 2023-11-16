@@ -4,6 +4,7 @@ import { Banner } from "./Banner";
 import { ShowMovie } from "./ShowMovie";
 import { PacmanLoader } from "react-spinners";
 import { Lauout } from "../../components/Layout";
+import { PageTitle } from "../../components/PageTitle";
 
 export const Home = () => {
   // nowPlaying(); //비동기 통신할 때 그냥 함수를 불러올 수가 없음 (이렇게 하면 안됨)
@@ -54,6 +55,7 @@ export const Home = () => {
         <div>
           {nowPlayingData && (
             <>
+              <PageTitle titleName="HOME" />
               <Banner data={nowPlayingData[0]} />
               <Lauout>
                 <ShowMovie

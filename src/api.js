@@ -33,3 +33,8 @@ export const topRated = () =>
 
 export const upcoming = () =>
   fetch(upcomingUrl, options).then((res) => res.json());
+
+export const movieDetail = ({ id }) => {
+  const detailUrl = baseUrl + `movie/${id}` + "?language=ko-kr";
+  return fetch(detailUrl, options).then((res) => res.json());
+};
