@@ -47,9 +47,9 @@ const BlackBg = styled.div`
   height: 100%;
   background: linear-gradient(
     0deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(94, 94, 94, 0.765625) 45%,
-    rgba(255, 255, 255, 0.7854166) 100%
+    rgba(0, 0, 0, 0.8072916666666666) 0%,
+    rgba(94, 94, 94, 0.865625) 45%,
+    rgba(255, 255, 255, 0) 100%
   );
   position: absolute;
   top: 0;
