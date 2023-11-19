@@ -5,6 +5,7 @@ import { ShowMovie } from "./ShowMovie";
 import { PacmanLoader } from "react-spinners";
 import { Lauout } from "../../components/Layout";
 import { PageTitle } from "../../components/PageTitle";
+import { Loading } from "../../components/Loading";
 
 export const Home = () => {
   // nowPlaying(); //비동기 통신할 때 그냥 함수를 불러올 수가 없음 (이렇게 하면 안됨)
@@ -49,7 +50,7 @@ export const Home = () => {
   return (
     <>
       {isloading ? ( // 로딩이 참이면 실행
-        <PacmanLoader color="hotpink" />
+        <Loading />
       ) : (
         // 그게 아니라면
         <div>
