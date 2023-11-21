@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { IMG_URL } from "../../constants";
 import { PageTitle } from "../../components/PageTitle";
 import { Loading } from "../../components/Loading";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 const Wrap = styled.div`
   padding: 150px 20%;
@@ -69,6 +70,7 @@ export const Detail = () => {
   const [detailData, setDetailData] = useState();
   const [isloading, setLoading] = useState(true);
   // 로딩은 안하면 밑에 detailData?.ddd 이렇게 해야함
+  useScrollTop();
 
   useEffect(() => {
     (async () => {
