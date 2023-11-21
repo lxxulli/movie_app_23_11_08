@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Banner } from "./Banner";
 import { ShowMovie } from "./ShowMovie";
 import { PacmanLoader } from "react-spinners";
-import { Lauout } from "../../components/Layout";
+import { Layout } from "../../components/Layout";
 import { PageTitle } from "../../components/PageTitle";
 import { Loading } from "../../components/Loading";
 
@@ -33,9 +33,6 @@ export const Home = () => {
         setTopData(topResults);
         const { results: upcomResults } = await upcoming();
         setUpcommingData(upcomResults);
-
-        // setTopData(topData);
-
         setIsLoading(false);
         // 로딩 끝
       } catch (error) {
@@ -58,7 +55,7 @@ export const Home = () => {
             <>
               <PageTitle titleName="HOME" />
               <Banner data={nowPlayingData[0]} />
-              <Lauout>
+              <Layout>
                 <ShowMovie
                   titleName={"현재 상영 영화"}
                   movieData={nowPlayingData}
@@ -69,7 +66,7 @@ export const Home = () => {
                   titleName={"개봉 예정 영화"}
                   movieData={upcomingData}
                 />
-              </Lauout>
+              </Layout>
             </>
           )}
         </div>

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { movieDetail } from "../../api";
 import styled from "styled-components";
 import { IMG_URL } from "../../constants";
+import { PageTitle } from "../../components/PageTitle";
 
 const Wrap = styled.div`
   padding: 150px 20%;
@@ -36,7 +37,11 @@ const TitleName = styled.h3`
   font-size: 50px;
   font-weight: 700;
 `;
-const VoteAverage = styled.div``;
+const VoteAverage = styled.div`
+  span {
+    color: red;
+  }
+`;
 const Runtime = styled.div``;
 const Genres = styled.div``;
 const ReleaseData = styled.div``;
@@ -48,13 +53,14 @@ export const Detail = () => {
   const { id } = useParams();
   // 아이디 값 찾기
   const [detailData, setDetailData] = useState();
+  const [isloading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
       try {
         const data = await movieDetail(id);
         setDetailData(data);
-        console.log(data);
+        setLoading(false);
       } catch (error) {
         console.log("Error :" + error);
       }
@@ -63,24 +69,25 @@ export const Detail = () => {
 
   return (
     <Wrap>
-      <MainImg $bgUrl={detailData?.poster_path} />
+      <PageTitle titleName="detail" />
+      <MainImg $bgUrl={detailData.poster_path} />
       <Container>
-        <TitleName>{detailData?.title}</TitleName>
+        <TitleName>{detailData.title}</TitleName>
         <Con>
           <VoteAverage>
-            평점 {Math.round(detailData?.vote_average)}점
+            평점 <span>{Math.round(detailData.vote_average)}점</span>
           </VoteAverage>
           <li>•</li>
-          <Runtime>{detailData?.runtime}분</Runtime>
+          <Runtime>{detailData.runtime}분</Runtime>
           <li>•</li>
-          <ReleaseData>{detailData?.release_date}</ReleaseData>
+          <ReleaseData>{detailData.release_date}</ReleaseData>
         </Con>
         <Genres>
-          {detailData?.genres.map((genre) => {
+          {detailData.genres.map((genre) => {
             <li key={genre.id}>{genre?.name}</li>;
           })}
         </Genres>
-        <Desc>{detailData?.overview}</Desc>
+        <Desc>{detailData.overview}</Desc>
       </Container>
     </Wrap>
   );
