@@ -82,7 +82,7 @@ export const Detail = () => {
         console.log("Error :" + error);
       }
     })();
-  }, []);
+  }, [id]);
 
   return (
     <>

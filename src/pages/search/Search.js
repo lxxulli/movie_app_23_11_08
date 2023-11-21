@@ -13,10 +13,39 @@ const Wrap = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled.h3``;
-const Form = styled.form``;
-const Input = styled.input``;
+const Title = styled.h3`
+  font-size: 25px;
+`;
+const Form = styled.form`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+const Input = styled.input`
+  all: unset;
+  width: 100%;
+  padding: 20px 50px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+  margin: 40px 0 20px;
+`;
 const ErrorMessage = styled.div``;
+const Button = styled.button`
+  all: unset;
+  width: 100px;
+  height: 40px;
+  background-color: #333;
+  border-radius: 7px;
+  font-size: 18px;
+  text-align: center;
+  opacity: ${(props) => (props.$isActive ? 1 : 0.5)};
+  cursor: ${(props) => (props.$isActive ? "pointer" : "default")};
+  margin-top: 40px;
+`;
 const ConWrap = styled.div`
   display: grid;
   /* gird가 적용될 부모에게 사용 / 플랙스와 동일 */
@@ -31,11 +60,16 @@ const ConWrap = styled.div`
 `;
 const Con = styled.div``;
 const Bg = styled.div`
+  width: 200px;
   height: 300px;
   background: url(${IMG_URL}/w500/${(props) => props.$bgUrl}) no-repeat center /
     cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
 `;
-const MovieTItle = styled.div``;
+const MovieTItle = styled.div`
+  font-size: 18px;
+`;
 
 export const Search = () => {
   // api에 검색 요청에 맞게 url연결과 매개변수 작성할 것
@@ -83,6 +117,8 @@ export const Search = () => {
           placeholder="검색 내용"
         />
         <ErrorMessage>{errors?.search?.message}</ErrorMessage>
+
+        <Button $isActive={isValid}>검색</Button>
       </Form>
 
       <Layout>
