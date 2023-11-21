@@ -90,7 +90,7 @@ export const Search = () => {
           <ConWrap>
             {term.map((data) => (
               <Con key={data.id}>
-                <Bg $bgUrl={data.backdrop_path} />
+                <Bg $bgUrl={data.poster_path} />
                 <MovieTItle>{data.title}</MovieTItle>
               </Con>
             ))}

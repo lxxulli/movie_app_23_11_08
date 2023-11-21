@@ -2,7 +2,6 @@ import { nowPlaying, popular, topRated, upcoming } from "../../api";
 import { useEffect, useState } from "react";
 import { Banner } from "./Banner";
 import { ShowMovie } from "./ShowMovie";
-import { PacmanLoader } from "react-spinners";
 import { Layout } from "../../components/Layout";
 import { PageTitle } from "../../components/PageTitle";
 import { Loading } from "../../components/Loading";

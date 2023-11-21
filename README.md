@@ -12,7 +12,8 @@
   - [] npm i react-hook-form
 - [x] title 관련
   - npm i react-helmet
-- [] font-awesome
+- [x] font-awesome
+  - npm i font-awesome
 - [x] swiper
 
 ## todo
@@ -25,6 +26,6 @@
 - [x] Detail ui 및 전체 컴포넌트 구성
 - [x] Search ui 및 전체 컴포넌트 구성
 - [x] helmet 사용 시 경고 처리
-- [] header 스크롤 이벤트 설정
+- [x] header 스크롤 이벤트 설정
 - [] 전체 페이지 helmet 구성
 - [] 404 Page ui 구성

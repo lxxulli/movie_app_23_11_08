@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
 import styled from "styled-components";
+import { useEffect, useRef } from "react";
 
 const SHeader = styled.div`
   width: 100%;
@@ -11,7 +12,7 @@ const SHeader = styled.div`
   a {
     color: white;
   }
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 10;
@@ -32,8 +33,29 @@ const Menu = styled.div`
 `;
 
 export const Header = () => {
+  const headerRef = useRef();
+  // 레퍼런스 참조자 = 참조하고자 하는 곳에 ref를 이름을 넣으면 됨
+
+  const scrollHandler = () => {
+    // const pageY = window.pageYOffset;
+    const pageY = window.scrollY; // 위랑 동일한 효과
+
+    if (pageY > 300) {
+      headerRef.current.style.position = "fixed";
+      headerRef.current.style.backgroundColor = "rgba(0,0,0,0.5";
+      headerRef.current.style.backdropFilter = "blur(3px)";
+    } else {
+      headerRef.current.style.position = "absolute";
+      headerRef.current.style.backgroundColor = "transparent";
+      headerRef.current.style.backdropFilter = "blur(0px)";
+    }
+  };
+
+  useEffect(() => {
+    return window.addEventListener("scroll", scrollHandler);
+  });
   return (
-    <SHeader>
+    <SHeader ref={headerRef}>
       <Logo>
         <Link to={routes.home}>YUL</Link>
       </Logo>
